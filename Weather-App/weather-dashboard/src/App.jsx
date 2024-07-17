@@ -1,14 +1,11 @@
-import React from 'react';
 import Dashboard from './components/Dashboard';
-import NavBar from './components/Navbar';
-import './App.css';
+import AppLayout from './layout/AppLayout';
 
 const App = () => {
   return (
-    <div className="App">
-        <NavBar/>
-        <Dashboard /> 
-    </div>
+    <AppLayout>
+         <Dashboard /> 
+    </AppLayout>
   );
 };
 

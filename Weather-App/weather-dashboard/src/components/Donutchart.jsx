@@ -1,6 +1,9 @@
 import React, { useState, useEffect, useRef} from "react";
 import * as d3 from 'd3';
 
+const width = 290;
+const height = 250;
+
 const Donutchart = ({data}) => {
     const chartRef = useRef();
     useEffect(() => {
@@ -11,8 +14,7 @@ const Donutchart = ({data}) => {
     
       const drawChart = () => {
         const svg = d3.select(chartRef.current);
-        const width = 300;
-        const height = 300;
+        
         const radius = Math.min(width, height) / 2;
     
         svg.selectAll('*').remove(); // Clear previous chart
@@ -52,7 +54,7 @@ const Donutchart = ({data}) => {
       };
   return (
 
-      <svg ref={chartRef} width={300} height={300}></svg>
+      <svg ref={chartRef} width={width} height={height}></svg>
 
   )
 }

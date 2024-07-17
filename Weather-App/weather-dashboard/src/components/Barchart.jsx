@@ -58,7 +58,6 @@ const Barchart = ({ data }) => {
   return (
     <>
       <svg ref={chartRef} width={400} height={400}></svg>
-      
     </>
   );
 };

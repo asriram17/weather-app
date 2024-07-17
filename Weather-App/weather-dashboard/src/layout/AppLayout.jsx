@@ -1,14 +1,14 @@
-import React from 'react'
-import NavBar from '../components/Navbar';
-const AppLayout = ({children}) => {
+import Navbar from "../components/NavBar/Navbar"
+
+const AppLayout = ({ children }) => {
   return (
-    <div>
-        <NavBar />
-        <main>
+    <div className="App">
+        <Navbar />
+        <main className="content">
             {children}
         </main>
     </div>
   )
 }
 
-export default AppLayout
+export default AppLayout;

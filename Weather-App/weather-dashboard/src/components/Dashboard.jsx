@@ -2,10 +2,12 @@ import React, { useState, useEffect, useRef } from "react";
 import Weather from "./Weather";
 import axios from "axios";
 import Forecast from "./Forecast";
-
 import Barchart from "./Barchart";
 import Donutchart from "./Donutchart";
 import ScribblePad from "./ScribblePad";
+
+const API_KEY = '136dead426c6cfa34a4aab945996a76c';
+const STOCK_API_KEY = "demo";
 
 const Dashboard = () => {
   const [weatherData, setWeatherData] = useState(null);
@@ -16,9 +18,7 @@ const Dashboard = () => {
   const [symbol, setSymbol] = useState("IBM");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  const API_KEY = "136dead426c6cfa34a4aab945996a76c";
-  const STOCK_API_KEY = "demo";
-  // const STOCK_API_KEY = "Y03AEVID0RV0LWEE";
+  
   useEffect(() => {
     const fetchWeatherData = async () => {
       setLoading(true);
@@ -61,33 +61,12 @@ const Dashboard = () => {
   };
 
   return (
-    <div className="dashboard">
+    <>
       {error && <h3 style={{ color: "red" }}>Enter a valid City Name</h3>}
       {loading ? (
-        <div>
           <h1>Loading....</h1>
-        </div>
       ) : (
         <>
-          <div className="form">
-            <form
-              onSubmit={(e) => {
-                e.preventDefault();
-                handleSearch();
-                setError("");
-              }}
-            >
-              <input
-                className="input-form"
-                type="text"
-                value={inputValue}
-                placeholder="Enter City"
-                onChange={(e) => setInputValue(e.target.value)}
-              ></input>
-              <button onClick={handleSearch}>search</button>
-            </form>
-          </div>
-
           {weatherData && (
             <div className="allcards">
               <div className="weather-card">
@@ -96,16 +75,32 @@ const Dashboard = () => {
               <div className="forecast">
                 <Forecast data={forecastData} />
               </div>
-              {/* <div className="stock-chart"> */}
-                <div className="barchart">
-                  <p style={{ color: "black" }}>Stock Market - {symbol}</p>
-                  <Barchart data={data} />
+                <div className="barchart-container">
+                    <form
+                      onSubmit={(e) => {
+                        e.preventDefault();
+                        handleSearch();
+                        setError("");
+                      }}
+                    >
+                      <input
+                        className="input-form"
+                        type="text"
+                        value={inputValue}
+                        placeholder="Enter City"
+                        onChange={(e) => setInputValue(e.target.value)}
+                      ></input>
+                      <button onClick={handleSearch}>search</button>
+                    </form>
+                  <div className="barchart">
+                    <p style={{ color: "black", padding: '10px 15px', marginBottom: '2px'}}>Stock Market - {symbol}</p>
+                    <Barchart data={data} />
+                  </div>
                 </div>
                 <div className="donutchart">
                   <p style={{ color: "black" }}>Stock Market - {symbol}</p>
                   <Donutchart data={data} />
                 </div>
-              {/* </div> */}
               <div className="scribble">
                 <ScribblePad />
               </div>
@@ -113,7 +108,7 @@ const Dashboard = () => {
           )}
         </>
       )}
-    </div>
+    </>
   );
 };
 

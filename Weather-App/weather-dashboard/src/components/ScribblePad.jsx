@@ -90,8 +90,8 @@ const ScribblePad = () => {
         <div className="scribble-pad-container">
         <canvas
             ref={canvasRef}
-            width={600}
-            height={300}
+            width={910}
+            height={250}
             onMouseDown={startDrawing}
             onMouseMove={draw}
             onMouseUp={finishDrawing}
