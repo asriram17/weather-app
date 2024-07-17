@@ -18,7 +18,6 @@ const Forecast = ({data}) => {
     ) )}
     </div>
   )
-
 }
 
-export default Forecast
+export default Forecast;

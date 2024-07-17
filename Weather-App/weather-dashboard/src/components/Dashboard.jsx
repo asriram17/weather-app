@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import Weather from "./Weather";
 import axios from "axios";
 import Forecast from "./Forecast";
@@ -7,7 +7,7 @@ import Donutchart from "./Donutchart";
 import ScribblePad from "./ScribblePad";
 
 const API_KEY = '136dead426c6cfa34a4aab945996a76c';
-const STOCK_API_KEY = "demo";
+// const STOCK_API_KEY = "demo";
 
 const Dashboard = () => {
   const [weatherData, setWeatherData] = useState(null);
@@ -54,7 +54,7 @@ const Dashboard = () => {
     };
 
     fetchWeatherData();
-  }, [location, API_KEY]);
+  }, [location]);
 
   const handleSearch = () => {
     setLocation(inputValue);

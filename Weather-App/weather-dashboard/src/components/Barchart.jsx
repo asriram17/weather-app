@@ -1,5 +1,6 @@
-import React, { useState, useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import * as d3 from "d3";
+
 const Barchart = ({ data }) => {
   const chartRef = useRef();
   useEffect(() => {

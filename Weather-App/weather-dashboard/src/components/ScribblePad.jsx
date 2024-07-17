@@ -1,5 +1,4 @@
-import React, { useRef, useState, useEffect } from 'react';
-// import '../styles/ScribblePad.css'
+import { useRef, useState, useEffect } from 'react';
 
 const ScribblePad = () => {
   const canvasRef = useRef(null);

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef} from "react";
+import { useEffect, useRef} from "react";
 import * as d3 from 'd3';
 
 const width = 290;
@@ -53,9 +53,7 @@ const Donutchart = ({data}) => {
 
       };
   return (
-
       <svg ref={chartRef} width={width} height={height}></svg>
-
   )
 }
 

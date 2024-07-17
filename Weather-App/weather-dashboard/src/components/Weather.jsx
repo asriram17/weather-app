@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
 import { useDate } from "../Utils/useDate";
+
 const Weather = ({ data }) => {
   const { main, weather, name, wind, sys } = data;
   const { time } = useDate();

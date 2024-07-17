@@ -1,8 +1,6 @@
 import React from 'react';
 
 const minicards = ({item}) => {
-    console.log(item);
-
   return (
     <div className='minicards'>
     <p className='text-center'>
